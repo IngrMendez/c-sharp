@@ -4,6 +4,7 @@ public class Producto
     public string Descripcion { get; set; }
     public double Precio { get; set; }
 
+
     public Producto(string descripcion, double precio)
     {
         Descripcion = descripcion;

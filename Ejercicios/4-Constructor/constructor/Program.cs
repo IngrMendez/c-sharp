@@ -1,29 +1,16 @@
 ﻿using System;
 
-namespace propiedades
+namespace constructor
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Alumno a = new Alumno();
-            a.PrimerNombre = "Juan";
-            a.SegundoNombre = "Perez";
+            Producto producto1 = new Producto("Mouse", 200);
+            Producto producto2 = new Producto("Teclado", 300);
+            Producto producto3 = new Producto("Laptop", 10000);
 
-            Alumno b = new Alumno();
-            b.Id = 2;
-            b.PrimerNombre = "Maria";
-            b.SegundoNombre = "Martinez";
-
-            Alumno c = new Alumno(3);
-            b.PrimerNombre = "Pedro";
-
-            Alumno d = new Alumno("Juan", "Jimenez");
-
-            Console.WriteLine(a.Id);
-            Console.WriteLine(b.Id);
-            Console.WriteLine(c.Id);
-            Console.WriteLine(d.PrimerNombre + " " + d.SegundoNombre);
+            Console.WriteLine(producto2.Descripcion + " " + producto2.Precio.ToString());
         }
     }
 }
