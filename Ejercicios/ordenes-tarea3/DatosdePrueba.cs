@@ -57,12 +57,17 @@ public class DatosdePrueba
         Console.WriteLine("Lista de Productos");
         Console.WriteLine("==================");
         Console.WriteLine("");
+        Console.WriteLine(" Codigo | Nombre | Precio");
+        Console.WriteLine("==========================");
+        Console.WriteLine("");
         
         foreach (var producto in ListadeProductos)
         {
             Console.WriteLine(producto.Codigo + " | " + producto.Descripcion + " | " + producto.Precio);
         }
-
+        Console.WriteLine("");
+        Console.Write("Presione la tecla enter para salir.");
+        
         Console.ReadLine();
     }
 
@@ -72,12 +77,17 @@ public class DatosdePrueba
         Console.WriteLine("Lista de Clientes");
         Console.WriteLine("=================");
         Console.WriteLine("");
+        Console.WriteLine(" Codigo | Nombre | Telefono");
+        Console.WriteLine("============================");
+        Console.WriteLine("");
         
         foreach (var cliente in ListadeClientes)
         {
             Console.WriteLine(cliente.Codigo + " | " + cliente.Nombre + " | " + cliente.Telefono);
         }
-
+        Console.WriteLine("");
+        Console.Write("Presione la tecla enter para salir.");
+        
         Console.ReadLine();
     }
 
@@ -87,17 +97,23 @@ public class DatosdePrueba
         Console.WriteLine("Lista de Vendedores");
         Console.WriteLine("===================");
         Console.WriteLine("");
+        Console.WriteLine(" Codigo | Nombre | Codigo Vendedor");
+        Console.WriteLine("============================");
+        Console.WriteLine("");
         
         foreach (var vendedor in ListadeVendedores)
         {
             Console.WriteLine(vendedor.Codigo + " | " + vendedor.Nombre + " | " + vendedor.CodigoVendedor);
         }
-
+        Console.WriteLine("");
+        Console.Write("Presione la tecla enter para salir.");
+        
         Console.ReadLine();
     }
 
     public void CrearOrden()
-    {
+    {   
+        Console.Clear();
         Console.WriteLine("Creando Orden");
         Console.WriteLine("=============");
         Console.WriteLine("");
@@ -149,6 +165,7 @@ public class DatosdePrueba
                 nuevaOrden.AgregarProducto(producto);
             }
 
+            Console.WriteLine();
             Console.WriteLine("Desea continuar? s/n");
             string continuar = Console.ReadLine();
             if (continuar.ToLower() == "n") {
@@ -157,7 +174,11 @@ public class DatosdePrueba
         }
 
         Console.WriteLine("");
+        Console.WriteLine("SubTotal de la orden es de: " + nuevaOrden.SubTotal);
+        Console.WriteLine("Impuesto de la orden es de: " + nuevaOrden.OrdenImpuesto);
         Console.WriteLine("Total de la orden es de: " + nuevaOrden.Total);
+        Console.WriteLine("");
+        Console.Write("Presione la tecla enter para salir.");
         Console.ReadLine();
     }
 
@@ -167,25 +188,29 @@ public class DatosdePrueba
         Console.WriteLine("Lista de Ordenes");
         Console.WriteLine("================");
         Console.WriteLine("");  
-        Console.WriteLine("Codigo | Fecha | Total");
-        Console.WriteLine("Cliente | Vendedor");
-        Console.WriteLine("======================");
+        Console.WriteLine(" Codigo | Fecha | | SubTotal | Impuestos | Total");
+        Console.WriteLine("=================================================");
         Console.WriteLine("");  
 
         foreach (var orden in ListaOrdenes)
         {
-            Console.WriteLine(orden.Codigo + " | " + orden.Fecha + " | " + orden.Total);
+            Console.WriteLine(orden.Codigo + " | " + orden.Fecha + " | " + orden.SubTotal + " | " + orden.OrdenImpuesto + " | " + orden.Total);
+            Console.WriteLine();
+            Console.WriteLine("Cliente | Vendedor");
+            Console.WriteLine("==================");
             Console.WriteLine(orden.Cliente.Nombre + " | " + orden.Vendedor.Nombre);
+            Console.WriteLine("");  
             
             foreach (var detalle in orden.ListaOrdenDetalle)
             {
                 Console.WriteLine("     " + detalle.Producto.Descripcion + " | " + detalle.Cantidad + " | " + detalle.Precio);
             }
-
+        
             Console.WriteLine();
+            
         } 
 
+        Console.Write("Presione la tecla enter para salir.");
         Console.ReadLine();
     }
 }
-    
